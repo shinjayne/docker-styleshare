@@ -11,6 +11,8 @@ styleshare store demo : docker compose managing database/django app/nginx
 ### `django` 서비스 :  `Dockerfile-django`, `django-styleshare`
 Django + REST API WAS Docker Image 를 구성합니다.
 
+> `django` 서비스를 구성하는 자세한 코드나 로직은 [Django Styleshare Repository](https://github.com/shinjayne/django-styleshare) 에서 확인하실 수 있습니다! 
+
 프론트에서 오는 다양한 RESTful 한 CRUD 요청을 처리합니다.
 
 ### `nginx` 서비스 :  `Dockerfile-nginx`, `nginx-settings` 
