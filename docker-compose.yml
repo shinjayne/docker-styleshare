@@ -1,0 +1,41 @@
+version: "2.0"
+services:
+  database:
+    restart: always
+
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    expose:
+      - "3306"
+    volumes:
+      - ./Dump.sql:/docker-entrypoint-initdb.d/Dump.sql
+    environment:
+      MYSQL_DATABASE: django-styleshare
+      MYSQL_ROOT_PASSWORD: stylesharejcurve
+
+  django:
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile-django
+
+    ports:
+      - "8000:8000"
+
+    depends_on:
+        - database    
+
+    command:  bash -c "python3 manage.py migrate && uwsgi --socket 0.0.0.0:8000 wsgiSetting.ini"
+            
+
+  nginx:
+    restart: always
+    build:
+      context: .
+      dockerfile : Dockerfile-nginx
+
+    ports:
+      - "80:80"
+
+    depends_on:
+      - django
