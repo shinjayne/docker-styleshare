@@ -27,8 +27,9 @@ Nginx 서버 Image 를 구성합니다. Django 로 외부 Request 를 전달하�
 1. `docker CE` 를 설치합니다.  (https://docs.docker.com/docker-for-windows/install/) (https://docs.docker.com/docker-for-mac/install/)
 2. `docker-compose` 를 설치합니다. (`docker CE` 설치할 때 보통 함께 설치됩니다.) (https://docs.docker.com/compose/install/#install-compose)
 3. 현재 repository 를 `git clone` 받고, clone 받은 repository 의 root directory 로 이동합니다. (`docker-compose.yml` 이 존재하는 directory 입니다.)
-4. `docker-compose up -d` 혹은 `docker-compose up` 명령어를 실행합니다.
-5. 조금 기다린 뒤 (30초~1분), 웹 브라우저에서 `localhost:80/admin` 에 접속하여 세 서비스가 문제없이 deploy 되었는지를 확인합니다.
+4. `git clone https://github.com/shinjayne/django-styleshare.git` 을 실행해서 django 코드를 불러옵니다.
+5. `docker-compose up -d` 혹은 `docker-compose up` 명령어를 실행합니다.
+6. 조금 기다린 뒤 (30초~1분), 웹 브라우저에서 `localhost:80/admin` 에 접속하여 세 서비스가 문제없이 deploy 되었는지를 확인합니다.
 
 
 
